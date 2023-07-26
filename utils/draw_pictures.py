@@ -515,9 +515,9 @@ def show_2D_mat(dmat, lons, lats,
     ### 4. 绘制色标
     if handle is not None: 
         plt.rcParams['font.family'] = 'Times New Roman'
-        plt.rcParams['font.size'] = 14+scale_factor
-        cbp1 = fig.add_axes([0.9, 0.1, 0.02, 0.8])
-        cbar1 = plt.colorbar(handle, ticks=clvls, format='%.2f', cax=cbp1, orientation='vertical')
+        plt.rcParams['font.size'] = 8+scale_factor
+        cbp1 = fig.add_axes([0.89, 0.1, 0.015, 0.8])
+        cbar1 = plt.colorbar(handle, ticks=clvls, format='%.1e', cax=cbp1, orientation='vertical')
         # cbar1.ax.set_xlabel('QPE 01H (mm)')
 
     # 画线

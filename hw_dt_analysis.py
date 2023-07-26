@@ -30,7 +30,13 @@ def dT_analysis(idate, fn_t2m, fn_u10, fn_v10, fn_w, fn_gama, fn_ssrd, fn_sntr, 
     ∂T/∂t = -V·▽T - w(γd-γ) + (1/cp)(dQ/dt)
     计算上式 右侧3项
     """
-    pass 
+    ifn_t2m = fn_t2m.format(t=idate)
+    ifn_u10 = fn_u10.format(t=idate)
+    ifn_v10 = fn_v10.format(t=idate)
+    ifn_w = fn_u10.format(t=idate)
+    ifn_gama = fn_gama.format(t=idate)
+    #ifn_ssr
+
 
 
 

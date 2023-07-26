@@ -16,7 +16,7 @@ def readNC(fn, val_name, lon_name='lon', lat_name='lat',
            nor=60.0, sou=0.0, wst=70.0, est=140.0, dlon=0.05, dlat=0.05, 
            fill_val=np.nan, 
            method=cv.INTER_NEAREST, 
-           max_threshold=9999.0):
+           max_threshold=None):
     """
     负责读取 NC 文件，并将数据切割到指定的目标区域 [nor, sou, wst, est]
     
@@ -175,7 +175,8 @@ def readNC(fn, val_name, lon_name='lon', lat_name='lat',
     # 将插值后的数据填充到 dmat
     dmat = np.zeros((n_ense, len(lats), len(lons))) + fill_val
     dmat[:, idx_out_sou:idx_out_nor+1, idx_out_wst:idx_out_est+1] = dmat_out
-    dmat[dmat > max_threshold] = 0.0 
+    if max_threshold is not None:
+        dmat[dmat > max_threshold] = 0.0 
     '''
     # test
     from matplotlib import pyplot as plt
